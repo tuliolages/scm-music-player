@@ -185,7 +185,8 @@
 	postFactory(SCM,
 		'queue,play,pause,next,previous,volume,skin,placement,'+
 		'loadPlaylist,repeatMode,isShuffle,showPlaylist,'+
-		'togglePlaylist,toggleShuffle,changeRepeatMode');
+		'togglePlaylist,toggleShuffle,changeRepeatMode,'+
+		'displayAds');
 
 	if(window.SCM && window.SCMMusicPlayer) return;
 

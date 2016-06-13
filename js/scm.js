@@ -118,6 +118,8 @@ var	playback = null,
 	volume = ko.observable(50),
 	repeatMode = ko.observable(1), //0 none, 1 all, 2 one
 
+	displayAds = ko.observable(false),
+
 	pause = _(isPlay).bind(null,false),
 	play = function(song){
 		if(song instanceof Song)
@@ -229,6 +231,8 @@ var	playback = null,
 		next:next, 
 		previous:previous,
 		changeRepeatMode:changeRepeatMode,
-		toggleShuffle:toggleShuffle
+		toggleShuffle:toggleShuffle,
+
+		displayAds:displayAds
 	};
 });

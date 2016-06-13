@@ -4,11 +4,14 @@ var skin = ko.observable('skins/tunes/skin.css'),
   isSelf = location.host.match(/(localhost|scmplayer\.net)/);
 	placement = ko.observable('top'),
 	showPlaylist = ko.observable(false),
+	displayAds = ko.computed(function() {
+		return SCM.displayAds();
+	}),
 	display = ko.computed(function(){
 		return SCM.message() || SCM.current().title();
 	}),
   showAd = ko.computed(function(){
-    return isSelf && showPlaylist();
+    return isSelf && showPlaylist() && displayAds();
   });
 	timer = (function(){
 		function timeNo(no){
@@ -50,6 +53,8 @@ var skin = ko.observable('skins/tunes/skin.css'),
 		if('showplaylist' in data) SCM.showPlaylist(data.showplaylist!='false' && data.showplaylist);
 
 		if('playlist' in data) SCM.loadPlaylist(data.playlist);
+
+		if('displayAds' in data) SCM.displayAds(data.displayAds!='false' && data.displayAds);
 	};
 
 });
